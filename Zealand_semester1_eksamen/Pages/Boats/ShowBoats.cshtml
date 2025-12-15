@@ -1,0 +1,44 @@
+﻿@page
+@model Zealand_semester1_eksamen.Pages.Boats.ShowBoatsModel
+@{
+	<h1>Items</h1>
+
+	<table class="table table-bordered table-hover table-striped">
+		<thead>
+			<tr>
+				<th>
+					Id
+				</th>
+				<th>
+					sailNumber
+				</th>
+				<th>
+					Dimensions
+				</th>
+			</tr>
+		</thead>
+
+		<tbody>
+
+			@if (Model.Boats != null)
+			{
+				foreach (var boat in Model.Boats)
+				{
+					<tr>
+						<td>
+							@boat.Id
+						</td>
+						<td>
+							@boat.SailNumber
+						</td>
+						<td>
+							@boat.Dimensions
+						</td>
+					</tr>
+				}
+			}
+
+		</tbody>
+
+	</table>
+}
