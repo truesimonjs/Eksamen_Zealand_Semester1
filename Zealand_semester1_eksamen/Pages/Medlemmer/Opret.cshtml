@@ -1,0 +1,28 @@
+﻿@page
+@model Zealand_semester1_eksamen.Pages.Medlemmer.OpretModel
+
+<h1>Opret medlem</h1>
+
+<form method="post">
+    <p>
+        ID:<br />
+        <input type="number" asp-for="Medlem.MedlemId" />
+    </p>
+
+    <p>
+        Navn:<br />
+        <input asp-for="Medlem.Navn" />
+    </p>
+
+    <p>
+        Email:<br />
+        <input asp-for="Medlem.Email" />
+    </p>
+
+    <button type="submit">Gem</button>
+</form>
+
+<p>
+    <a asp-page="Index">Tilbage</a>
+</p>
+

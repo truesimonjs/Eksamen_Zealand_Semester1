@@ -1,0 +1,19 @@
+﻿@page
+@model Zealand_semester1_eksamen.Pages.Medlemmer.SletModel
+
+<h1>Slet medlem</h1>
+
+<p>Er du sikker på at du vil slette dette medlem?</p>
+
+<p>
+    @Model.Medlem.Navn (@Model.Medlem.Email)
+</p>
+
+<form method="post">
+    <input type="hidden" asp-for="Medlem.MedlemId" />
+    <button type="submit">Ja, slet</button>
+</form>
+
+<p>
+    <a asp-page="Index">Nej, tilbage</a>
+</p>

@@ -1,35 +1,20 @@
-namespace Zealand_semester1_eksamen
-{
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
-            builder.Services.AddRazorPages();
 
-            var app = builder.Build();
+var builder = WebApplication.CreateBuilder(args);
 
-            // Configure the HTTP request pipeline.
-            if (!app.Environment.IsDevelopment())
-            {
-                app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
+// Add Razor Pages support
+builder.Services.AddRazorPages();
 
-            app.UseHttpsRedirection();
+var app = builder.Build();
 
-            app.UseRouting();
+// Enable static files (css, js)
+app.UseStaticFiles();
 
-            app.UseAuthorization();
+// Enable Razor Pages routing
+app.MapRazorPages();
 
-            app.MapStaticAssets();
-            app.MapRazorPages()
-               .WithStaticAssets();
+// Start the web app
+app.Run();
 
-            app.Run();
-        }
-    }
-}
+
+
