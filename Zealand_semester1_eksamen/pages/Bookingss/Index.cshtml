@@ -1,0 +1,46 @@
+﻿@page
+@model Zealand_semester1_eksamen.pages.Bookingss.IndexModel
+<h3>Bookings</h3>
+
+<!-- Søgefelt -->
+<form method="post">
+    <input asp-for="SearchBoat" placeholder="Søg båd..." />
+    <button asp-page-handler="Search">Søg</button>
+</form>
+
+<!-- Aktive bookinger -->
+<h4>Aktive (@Model.Bookings.Count(b => b.IsActive))</h4>
+<table class="table">
+    @foreach (var b in Model.Bookings.Where(b => b.IsActive))
+    {
+        <tr>
+            <td>@b.Boat</td>
+            <td>@b.Member</td>
+            <td>@b.Start.ToString("dd/MM HH:mm")</td>
+            <td>@b.Destination</td>
+            <td>
+                <form method="post">
+                    <input type="hidden" name="id" value="@b.Id" />
+                    <button asp-page-handler="Complete">Afslut</button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+
+<!-- Alle bookinger -->
+<h4>Alle (@Model.Bookings.Count)</h4>
+<table class="table">
+    @foreach (var b in Model.Bookings)
+    {
+        <tr style="@(b.IsActive ? "background:#e8ffe8" : "")">
+            <td>@b.Boat</td>
+            <td>@b.Member</td>
+            <td>@b.Start.ToString("dd/MM HH:mm")</td>
+            <td>@b.Destination</td>
+            <td>@(b.IsActive ? "Aktiv" : "Afsluttet")</td>
+        </tr>
+    }
+</table>
+
+<a href="/Bookings/Create">Opret booking</a>
