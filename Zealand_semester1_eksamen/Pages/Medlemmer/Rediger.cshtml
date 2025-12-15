@@ -1,0 +1,24 @@
+﻿@page
+@model Zealand_semester1_eksamen.Pages.Medlemmer.RedigerModel
+
+<h1>Rediger medlem</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="Medlem.MedlemId" />
+
+    <p>
+        Navn:<br />
+        <input asp-for="Medlem.Navn" />
+    </p>
+
+    <p>
+        Email:<br />
+        <input asp-for="Medlem.Email" />
+    </p>
+
+    <button type="submit">Gem</button>
+</form>
+
+<p>
+    <a asp-page="Index">Tilbage</a>
+</p>
