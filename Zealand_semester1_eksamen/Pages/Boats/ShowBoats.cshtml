@@ -7,7 +7,10 @@
 		<thead>
 			<tr>
 				<th>
-					Id
+					
+				</th>
+				<th>
+					Name
 				</th>
 				<th>
 					sailNumber
@@ -29,6 +32,9 @@
 							@boat.Id
 						</td>
 						<td>
+							@boat.Name
+						</td>
+						<td>
 							@boat.SailNumber
 						</td>
 						<td>
@@ -41,4 +47,7 @@
 		</tbody>
 
 	</table>
+	<p>
+		<a class="btn btn-primary" asp-page="CreateBoatSJS">Create a new Item</a>
+	</p>
 }
