@@ -2,7 +2,7 @@
 
 namespace Zealand_semester1_eksamen.Models
 {
-    public class Boat
+    public class BoatSJS
     {
         public int Id { get; set; }
         //public string Type { get; set; }
@@ -12,8 +12,11 @@ namespace Zealand_semester1_eksamen.Models
         public Vector3 Dimensions { get; set; }
         public int Year { get; set; }
 
+        public BoatSJS()
+        {
 
-        public Boat (int id, string name, int sailNumber, Vector3 dimensions, int year)
+        }
+        public BoatSJS (int id, string name, int sailNumber, Vector3 dimensions, int year)
         {
             Id = id;
             Name = name;

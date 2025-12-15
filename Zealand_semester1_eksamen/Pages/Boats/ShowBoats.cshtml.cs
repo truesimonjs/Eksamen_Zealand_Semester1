@@ -7,10 +7,16 @@ namespace Zealand_semester1_eksamen.Pages.Boats
 {
     public class ShowBoatsModel : PageModel
     {
-        public List<Boat> Boats { get; private set; }
+        private IBoatServiceSJS boatService;
+        public List<BoatSJS> Boats { get; private set; }
+        public ShowBoatsModel(IBoatServiceSJS boatService)
+        {
+            this.boatService = boatService;
+        }
+
         public void OnGet()
         {
-            Boats = MockBoat.Boats;
+            Boats = boatService.GetBoats();
         }
     }
 }

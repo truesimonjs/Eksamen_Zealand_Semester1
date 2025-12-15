@@ -1,3 +1,5 @@
+using Zealand_semester1_eksamen.SJS;
+
 namespace Zealand_semester1_eksamen
 {
     public class Program
@@ -8,7 +10,7 @@ namespace Zealand_semester1_eksamen
 
             // Add services to the container.
             builder.Services.AddRazorPages();
-
+            builder.Services.AddSingleton<IBoatServiceSJS,BoatServiceSJS>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
