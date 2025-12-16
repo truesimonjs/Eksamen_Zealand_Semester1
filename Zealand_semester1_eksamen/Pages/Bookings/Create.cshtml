@@ -1,0 +1,33 @@
+﻿@page
+@model hillerodSejlklubb.Pages.Bookings.CreateModel
+
+<h3>Opret booking</h3>
+<form method="post">
+    <div>
+    @if (Model._boats != null)
+    {
+
+        foreach(var boat in Model._boats)
+        {
+        <label>
+        <input type="radio" asp-for="NewBooking.Boat" value="@boat" />
+        @boat._name 
+        </label>
+        }
+    }
+    </div>
+    
+    <div>
+        <label>Dato:</label>
+        <input asp-for="BookingDate" type="date" required />
+        <label>Starttid:</label>
+        <input asp-for="StartTime" type="time" required />
+        <label>Sluttid:</label>
+        <input asp-for="EndTime" type="time" required />
+        
+    </div>
+    
+    <input asp-for="NewBooking.Destination" placeholder="Destination" />
+    <button type="submit">Book</button>
+</form>
+<a href="/Bookings">Tilbage</a>
