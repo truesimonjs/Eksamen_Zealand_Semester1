@@ -12,19 +12,20 @@ namespace Zealand_semester1_eksamen.Services
         public EventService()
         {
             _events = new List<Event>();
-            // Vi putter lidt falsk data i, så vi kan se noget med det samme
+            // Vi putter lidt falsk data i, så vi kan se noget med det samme (hardcoded fordi vi har ikke databaser)
             _events.Add(new Event(1, "Standerhejsning", "Vi hejser flaget", "Havnen", DateTime.Now.AddDays(10)));
             _events.Add(new Event(2, "Grillfest", "Pølser og sodavand", "Klubhuset", DateTime.Now.AddDays(20)));
             _events.Add(new Event(3, "Generalforsamling", "Årligt møde", "Mødelokalet", DateTime.Now.AddDays(30)));
+            _events.Add(new Event(4, "Fælles kanotur", "Kom med til søen!", "Søen", DateTime.Now.AddDays(40)));
         }
 
-        // 1. Hent alle events
+        //Hent alle events
         public List<Event> GetEvents()
         {
             return _events;
         }
 
-        // 2. Tilføj event (Manuel ID håndtering uden LINQ)
+        //Tilføj event
         public void AddEvent(Event nyEvent)
         {
             // Vi skal finde det højeste ID manuelt med en løkke
@@ -43,8 +44,7 @@ namespace Zealand_semester1_eksamen.Services
             _events.Add(nyEvent);
         }
 
-        // 3. Søgefunktion (Manuel filtrering uden LINQ)
-        // Dette opfylder kravet om en "Filtreringsalgoritme"
+        // Søgefunktion/filtrering af events 
         public List<Event> SearchEvents(string søgeord)
         {
             List<Event> fundneEvents = new List<Event>();
@@ -52,7 +52,7 @@ namespace Zealand_semester1_eksamen.Services
             foreach (Event e in _events)
             {
                 // Vi tjekker om navnet indeholder søgeordet
-                // Vi laver alt om til små bogstaver (ToLower), så det ikke betyder noget om man skriver stort eller småt
+                // Vi laver alt om til små bogstaver (ToLower) så det ikke betyder noget om man skriver stort eller småt
                 if (e.Navn.ToLower().Contains(søgeord.ToLower()))
                 {
                     fundneEvents.Add(e);
@@ -61,5 +61,6 @@ namespace Zealand_semester1_eksamen.Services
 
             return fundneEvents;
         }
+        
     }
 }
