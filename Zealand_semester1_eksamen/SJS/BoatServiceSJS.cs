@@ -24,5 +24,18 @@ namespace Zealand_semester1_eksamen.SJS
             return boats;
 
         }
+        public BoatSJS GetBoat(int id)
+        {
+            foreach (var boat in boats)
+            {
+                if (boat.Id == id)
+                {
+                    return boat;
+                }
+               
+            }
+             throw new ArgumentException("Boat not found");
+            
+        }
     }
 }

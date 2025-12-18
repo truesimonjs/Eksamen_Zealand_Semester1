@@ -6,8 +6,9 @@ namespace Zealand_semester1_eksamen.SJS
     {
         List<BoatSJS> GetBoats();
         void AddBoat(BoatSJS boat);
-        
 
-        
+
+        BoatSJS GetBoat(int id);
     }
+
 }

@@ -1,0 +1,68 @@
+﻿@page
+@model Zealand_semester1_eksamen.Pages.BoatMaintenanceSJSModel
+@{
+
+
+    <h1>Items</h1>
+
+	<table class="table table-bordered table-hover table-striped">
+		<thead>
+			<tr>
+	
+				<th>
+					index
+				</th>
+				<th>
+					Date
+				</th>
+				<th>
+					Description
+				</th>
+			</tr>
+		</thead>
+
+		<tbody>
+
+			@if (Model.Boat.MaintenanceLogs != null)
+			{
+				foreach (var maintenance in Model.Boat.MaintenanceLogs)
+				{
+					<tr>
+						<td>
+                            @Model.Boat.MaintenanceLogs.IndexOf(maintenance)
+						</td>
+						<td>
+							
+						</td>
+						<td>
+							@maintenance
+						</td>
+						
+					</tr>
+				}
+			}
+
+		</tbody>
+	</table>
+   
+	<form method="post">
+
+		<div class="form-group">
+
+			Name
+			<input asp-for="Maintenance" class="form-control" />
+			<span asp-validation-for="Maintenance" class=" text-danger"></span>
+		</div>
+		<input asp-for="BoatId" type="hidden" />
+		<p>
+			<div class="form-group">
+				<input type="submit" value="Create" class="btn btn-primary" />
+			</div>
+		</p>
+	</form>
+	<p>
+		<a class="btn btn-primary" asp-page="ShowBoats">return</a>
+	</p>
+
+
+}

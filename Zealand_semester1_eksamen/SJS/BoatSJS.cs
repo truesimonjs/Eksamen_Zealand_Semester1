@@ -8,6 +8,7 @@ namespace Zealand_semester1_eksamen.Models
         //public string Type { get; set; }
         //public string Model { get; set; }
         public string Name { get; set; }
+        public List<string> MaintenanceLogs { get; set; } = new List<string>();
         public int SailNumber { get; set; }
         public Vector3 Dimensions 
         { 
@@ -27,6 +28,7 @@ namespace Zealand_semester1_eksamen.Models
         {
             Id = currentId;
             currentId++;
+            MaintenanceLogs = new List<string>();
         }
         public BoatSJS (string name, int sailNumber, Vector3 dimensions, int year)
         {
@@ -38,6 +40,7 @@ namespace Zealand_semester1_eksamen.Models
             Height = dimensions.Y;
             Length = dimensions.Z;
             Year = year;
+            MaintenanceLogs = new List<string>();
         }
     }
 }
