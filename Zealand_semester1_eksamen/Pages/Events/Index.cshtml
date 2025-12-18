@@ -1,0 +1,40 @@
+﻿@page
+@model Zealand_semester1_eksamen.Pages.Events.IndexModel
+@{
+    ViewData["Tittel"] = "Begivenheder";
+}
+
+<h1>Begivenheder og Fællesskab</h1>
+
+<form method="get">
+    <p>
+        Søg efter navn: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Søg" class="btn btn-primary" />
+    </p>
+</form>
+
+<p>
+    <a asp-page="Create" class="btn btn-success">Opret nyt Event</a>
+</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Navn</th>
+            <th>Beskrivelse</th>
+            <th>Lokation</th>
+            <th>Dato</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Events)
+        {
+            <tr>
+                <td>@item.Navn</td>
+                <td>@item.Beskrivelse</td>
+                <td>@item.Lokation</td>
+                <td>@item.Dato.ToString("dd-MM-yyyy HH:mm")</td>
+            </tr>
+        }
+    </tbody>
+</table>
