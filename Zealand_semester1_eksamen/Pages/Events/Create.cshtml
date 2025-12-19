@@ -1,0 +1,35 @@
+﻿@page
+@model Zealand_semester1_eksamen.Pages.Events.CreateModel
+@{
+    ViewData["Title"] = "Opret Event";
+}
+
+<h1>Opret Ny Event</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div class="form-group">
+                <label>Navn</label>
+                <input asp-for="NyEvent.Navn" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Beskrivelse</label>
+                <input asp-for="NyEvent.Beskrivelse" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Lokation</label>
+                <input asp-for="NyEvent.Lokation" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Dato</label>
+                <input asp-for="NyEvent.Dato" type="datetime-local" class="form-control" />
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Opret" class="btn btn-primary" />
+                <a asp-page="Index" class="btn btn-secondary">Fortryd</a>
+            </div>
+        </form>
+    </div>
+</div>
